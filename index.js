@@ -6,7 +6,7 @@ module.exports = BIServiceSDKCachePlugin;
 
 /**
  * @param {Object} options
- * @param {Object} store
+ * @param {CacheStoreInterface} store - memcached | redis | couchbase etc...
  * @param {Integer} ttl
  *
  * @return {Function}
