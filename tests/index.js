@@ -80,7 +80,8 @@ describe('cache plugin', function() {
                 ttl: this.cacheTTL
             }));
 
-            this.request = function(status, method) {
+            this.request = function(status, method, reqOptions) {
+                reqOptions = reqOptions || {};
                 method = method || 'get';
                 var url = status == 200 ? method : `status/${status}`;
 
@@ -92,12 +93,12 @@ describe('cache plugin', function() {
                     params: self.requestData
                 });
 
-                return self.sdk.$request({
+                return self.sdk.$request(Object.assign({
                     url: url,
                     method: method,
                     params: self.requestData,
                     headers: self.headers
-                });
+                }, reqOptions));
             };
         });
 
@@ -166,6 +167,7 @@ describe('cache plugin', function() {
                     }
                 };
                 this.cacheStore.set('http://eu.httpbin.org/get96efa9416860c36198d7922ae3a38f3f80f231c3', this.data, 60);
+                this.storeSetSpy.reset();
             });
 
             it('should return fulfilled promise with cached data', function() {
@@ -191,6 +193,16 @@ describe('cache plugin', function() {
                 var storeGetStub = sinon.stub(StoreStub.prototype, 'get').returns(Promise.reject(err));
 
                 return this.request(200).should.be.rejectedWith(err);
+            });
+
+            it('should NOT access cache store if we explicitly disable it (per request)', function() {
+                var self = this;
+
+                return this.request(200, 'get', {cache: false}).should.be.fulfilled.then(function(response) {
+                    self.axiosAdapterSpy.should.have.been.calledOnce;
+                    self.storeGetSpy.should.have.callCount(0);
+                    self.storeSetSpy.should.have.callCount(0);
+                });
             });
         });
 

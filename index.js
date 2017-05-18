@@ -5,6 +5,18 @@ var CacheStoreInterface = require('bi-cache-store-interface');
 module.exports = BIServiceSDKCachePlugin;
 
 /**
+ * @example
+ *
+ * var sdk = new SDK({baseURL: '...'});
+ * sdk.use(BIServiceSDKCachePlugin({
+ *     store: memcached,
+ *     ttl: 10 * 60
+ * }));
+ *
+ * sdk.requestMethod(); //uses cache store
+ * sdk.requestMethod({cache: false}); //does NOT use cache store
+ *
+ *
  * @param {Object} options
  * @param {CacheStoreInterface} options.store - memcached | redis | couchbase etc...
  * @param {Integer} [options.ttl=5min] - in seconds (0 = unlimited)
@@ -29,6 +41,7 @@ function BIServiceSDKCachePlugin(options) {
 
         axios.defaults.adapter = function cacheAdapter(config) {
             //fallback to the original adapter if the request is not GET
+            //or we explicitly disabled cache feature per request
             if (   !config
                 || config.cache === false
                 || typeof config.method !== 'string'
@@ -52,6 +65,7 @@ function BIServiceSDKCachePlugin(options) {
 
             var key = config.url + uniq;
 
+            //cache lookup
             return store.get(key).catch(function(err) {
                 return !(err instanceof CacheStoreInterface.NotFoundError);
             }, function(err) {
