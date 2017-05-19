@@ -66,7 +66,7 @@ function BIServiceSDKCachePlugin(options) {
             var key = config.url + uniq;
 
             //cache lookup
-            return store.get(key).catch(function(err) {
+            return store.fetch(key).catch(function(err) {
                 return !(err instanceof CacheStoreInterface.NotFoundError);
             }, function(err) {
                 //TODO log the err and continue
@@ -74,7 +74,7 @@ function BIServiceSDKCachePlugin(options) {
             }).catch(CacheStoreInterface.NotFoundError, function() {
                 // fallback to the http request if cached data does not exist
                 return _adapter(config).then(function(response) {
-                    return store.set(key, response, options.ttl).return(response);
+                    return store.settle(key, response, options.ttl).return(response);
                 });
             });
         };
