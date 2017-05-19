@@ -69,8 +69,8 @@ describe('cache plugin', function() {
 
             this.cacheStore = new StoreStub();
             this.axiosAdapterSpy = sinon.spy(this.sdk.axios.defaults, 'adapter');
-            this.storeGetSpy = sinon.spy(StoreStub.prototype, 'get');
-            this.storeSetSpy = sinon.spy(StoreStub.prototype, 'set');
+            this.storeGetSpy = sinon.spy(StoreStub.prototype, 'fetch');
+            this.storeSetSpy = sinon.spy(StoreStub.prototype, 'settle');
 
             this.cacheTTL = 60 * 5; //5 minutes
 
@@ -110,7 +110,7 @@ describe('cache plugin', function() {
 
         describe('a request is not cached', function() {
 
-            it('should call cache store "get" method with correct key', function() {
+            it('should call cache store "fetch" method with correct key', function() {
 
                 var self = this;
 
@@ -166,7 +166,7 @@ describe('cache plugin', function() {
                         'content-length': '280',
                     }
                 };
-                this.cacheStore.set('http://eu.httpbin.org/get96efa9416860c36198d7922ae3a38f3f80f231c3', this.data, 60);
+                this.cacheStore.settle('http://eu.httpbin.org/get96efa9416860c36198d7922ae3a38f3f80f231c3', this.data, 60);
                 this.storeSetSpy.reset();
             });
 
@@ -190,7 +190,7 @@ describe('cache plugin', function() {
             it('should return rejected promise with an Error when call to the cacheStore.get fails', function() {
                 var err = new Error('rejection test');
                 this.storeGetSpy.restore();
-                var storeGetStub = sinon.stub(StoreStub.prototype, 'get').returns(Promise.reject(err));
+                var storeGetStub = sinon.stub(StoreStub.prototype, 'fetch').returns(Promise.reject(err));
 
                 return this.request(200).should.be.rejectedWith(err);
             });

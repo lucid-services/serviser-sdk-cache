@@ -24,7 +24,7 @@ StoreStub.prototype.constructor = StoreStub;
  * @throws {NotFoundError} - async
  * @return {Promise}
  */
-StoreStub.prototype.get = function(key) {
+StoreStub.prototype.fetch = function(key) {
     var self = this;
     if (this.store.hasOwnProperty(key)) {
         return Promise.resolve(this.store[key]);
@@ -42,7 +42,7 @@ StoreStub.prototype.get = function(key) {
  * @throws {Error} - async
  * @return {Promise}
  */
-StoreStub.prototype.set = function(key, data, ttl) {
+StoreStub.prototype.settle = function(key, data, ttl) {
     this.store[key] = data;
 
     if (typeof ttl === 'number' && ttl !== 0) {
