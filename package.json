@@ -1,6 +1,6 @@
 {
   "name": "bi-service-sdk-cache",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Cache plugin",
   "main": "index.js",
   "scripts": {
@@ -19,7 +19,7 @@
   "author": "Bohemia Interactive",
   "private": false,
   "peerDependencies": {
-    "bi-service-sdk": "^0.6.x",
+    "bi-service-sdk": "^1.0.x",
     "bi-cache-store-interface": "^1.0.x"
   },
   "dependencies": {
@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "bi-cache-store-interface": "^1.0.x",
-    "bi-service-sdk": "^0.6.x",
+    "bi-service-sdk": "^1.0.x",
     "bluebird": "^3.5.0",
     "chai": "^3.5.0",
     "chai-as-promised": "^5.3.0",
