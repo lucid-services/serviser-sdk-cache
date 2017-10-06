@@ -13,8 +13,8 @@ module.exports = BIServiceSDKCachePlugin;
  *     ttl: 10 * 60
  * }));
  *
- * sdk.requestMethod(); //uses cache store
- * sdk.requestMethod({cache: false}); //does NOT use cache store
+ * sdk.<requestMethod>(); //uses cache store
+ * sdk.<requestMethod>({cache: false}); //does NOT use cache store
  *
  *
  * @param {Object} options
