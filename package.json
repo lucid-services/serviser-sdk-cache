@@ -16,6 +16,11 @@
     "sdk",
     "API"
   ],
+  "files": [
+      "index.js",
+      "README.md",
+      "CHANGELOG.md"
+  ],
   "author": "Bohemia Interactive",
   "private": false,
   "peerDependencies": {
