@@ -190,7 +190,7 @@ describe('cache plugin', function() {
             it('should return rejected promise with an Error when call to the cacheStore.get fails', function() {
                 var err = new Error('rejection test');
                 this.storeGetSpy.restore();
-                var storeGetStub = sinon.stub(StoreStub.prototype, 'fetch').returns(Promise.reject(err));
+                var storeGetStub = sinon.stub(StoreStub.prototype, 'fetch').rejects(err);
 
                 return this.request(200).should.be.rejectedWith(err);
             });
