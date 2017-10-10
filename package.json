@@ -1,45 +1,48 @@
 {
-  "name": "bi-service-sdk-cache",
-  "version": "0.3.0",
-  "description": "Cache plugin",
-  "main": "index.js",
-  "scripts": {
-    "test": "export NODE_ENV=test; istanbul cover node_modules/mocha/bin/_mocha -- --recursive --ui tdd -R spec tests"
-  },
-  "testFramework": "mocha",
-  "keywords": [
-    "cache",
-    "client",
-    "bi-service",
-    "service",
-    "interface",
-    "sdk",
-    "API"
-  ],
-  "files": [
-      "index.js",
-      "README.md",
-      "CHANGELOG.md"
-  ],
-  "author": "Bohemia Interactive",
-  "private": false,
-  "peerDependencies": {
-    "bi-service-sdk": "^1.0.x",
-    "bi-cache-store-interface": "^1.0.x"
-  },
-  "dependencies": {
-    "object-hash": "1.1.8"
-  },
-  "devDependencies": {
-    "bi-cache-store-interface": "^1.0.x",
-    "bi-service-sdk": "^1.0.x",
-    "bluebird": "^3.5.0",
-    "chai": "^3.5.0",
-    "chai-as-promised": "^5.3.0",
-    "istanbul": "^0.4.3",
-    "mocha": "^2.5.3",
-    "sinon": "^1.17.3",
-    "sinon-as-promised": "^4.0.0",
-    "sinon-chai": "^2.8.0"
-  }
+    "name": "bi-service-sdk-cache",
+    "version": "0.3.0",
+    "description": "Cache plugin",
+    "main": "index.js",
+    "scripts": {
+        "test": "export NODE_ENV=test; istanbul cover node_modules/mocha/bin/_mocha -- --recursive --ui tdd -R spec tests"
+    },
+    "testFramework": "mocha",
+    "keywords": [
+        "cache",
+        "client",
+        "bi-service",
+        "service",
+        "interface",
+        "sdk",
+        "API"
+    ],
+    "files": [
+        "index.js",
+        "README.md",
+        "CHANGELOG.md"
+    ],
+    "engines" : {
+        "node" : ">=6.4.0"
+    },
+    "author": "Bohemia Interactive",
+    "private": false,
+    "peerDependencies": {
+        "bi-service-sdk": "^1.0.x",
+        "bi-cache-store-interface": "^1.0.x"
+    },
+    "dependencies": {
+        "object-hash": "1.1.8"
+    },
+    "devDependencies": {
+        "bi-cache-store-interface": "^1.0.x",
+        "bi-service-sdk": "^1.0.x",
+        "bluebird": "^3.5.0",
+        "chai": "^4.1.2",
+        "chai-as-promised": "^7.1.1",
+        "istanbul": "^0.4.3",
+        "mocha": "^3.5.3",
+        "sinon": "^1.17.3",
+        "sinon-as-promised": "^4.0.0",
+        "sinon-chai": "^2.8.0"
+    }
 }
