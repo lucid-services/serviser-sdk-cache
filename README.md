@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/BohemiaInteractive/bi-service-sdk-cache.svg?branch=master)](https://travis-ci.org/BohemiaInteractive/bi-service-sdk-cache)  
 
 Provides request cache middleware for SDKs which implement `bi-service-sdk` interface.
 
