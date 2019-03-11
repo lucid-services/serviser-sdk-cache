@@ -1,6 +1,6 @@
 const Promise = require('bluebird');
 const sinon = require('sinon');
-const CacheStoreInterface = require('bi-cache-store-interface');
+const CacheStoreInterface = require('serviser-cache-store-interface');
 
 module.exports = StoreStub;
 

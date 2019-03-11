@@ -1,14 +1,14 @@
 var hash                = require('object-hash');
-var CacheStoreInterface = require('bi-cache-store-interface');
+var CacheStoreInterface = require('serviser-cache-store-interface');
 
 
-module.exports = BIServiceSDKCachePlugin;
+module.exports = ServiceSDKCachePlugin;
 
 /**
  * @example
  *
  * var sdk = new SDK({baseURL: '...'});
- * sdk.use(BIServiceSDKCachePlugin({
+ * sdk.use(ServiceSDKCachePlugin({
  *     store: memcached,
  *     ttl: 10 * 60
  * }));
@@ -23,7 +23,7 @@ module.exports = BIServiceSDKCachePlugin;
  *
  * @return {Function}
  */
-function BIServiceSDKCachePlugin(options) {
+function ServiceSDKCachePlugin(options) {
 
     options = Object.assign({}, options || {});
     var store = options.store;
