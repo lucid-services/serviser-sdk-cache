@@ -1,6 +1,6 @@
 {
     "name": "serviser-sdk-cache",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "description": "Cache plugin",
     "main": "index.js",
     "scripts": {
