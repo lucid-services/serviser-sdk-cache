@@ -1,5 +1,5 @@
 {
-    "name": "bi-service-sdk-cache",
+    "name": "serviser-sdk-cache",
     "version": "0.3.0",
     "description": "Cache plugin",
     "main": "index.js",
@@ -10,7 +10,7 @@
     "keywords": [
         "cache",
         "client",
-        "bi-service",
+        "serviser",
         "service",
         "interface",
         "sdk",
@@ -24,18 +24,18 @@
     "engines" : {
         "node" : ">=6.4.0"
     },
-    "author": "Bohemia Interactive",
+    "author": "fogine",
     "private": false,
     "peerDependencies": {
-        "bi-service-sdk": "^1.0.x",
-        "bi-cache-store-interface": "^1.0.x"
+        "serviser-sdk": "^1.0.x",
+        "serviser-cache-store-interface": "^1.0.x"
     },
     "dependencies": {
         "object-hash": "1.1.8"
     },
     "devDependencies": {
-        "bi-cache-store-interface": "^1.0.x",
-        "bi-service-sdk": "^1.0.x",
+        "serviser-cache-store-interface": "^1.0.x",
+        "serviser-sdk": "^1.0.x",
         "bluebird": "^3.5.0",
         "chai": "^4.1.2",
         "chai-as-promised": "^7.1.1",

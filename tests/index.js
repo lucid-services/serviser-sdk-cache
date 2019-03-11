@@ -3,7 +3,7 @@ var chai           = require('chai');
 var chaiAsPromised = require('chai-as-promised');
 var sinonChai      = require("sinon-chai");
 var hash           = require('object-hash');
-var BIServiceSDK   = require('bi-service-sdk').BIServiceSDK;
+var ServiceSDK   = require('serviser-sdk').ServiceSDK;
 
 global.Promise     = require('bluebird');
 
@@ -36,7 +36,7 @@ describe('cache plugin', function() {
 
     beforeEach(function() {
         var self = this;
-        this.sdk = new BIServiceSDK({baseURL: 'http://eu.httpbin.org'});
+        this.sdk = new ServiceSDK({baseURL: 'http://eu.httpbin.org'});
 
         this.getHeaders = function(custom) {
             var defaults = self.sdk.axios.defaults.headers;
